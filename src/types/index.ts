@@ -11,6 +11,56 @@ export interface Source {
   url?: string;
 }
 
+/* ==================================================
+   DYNAMIC CULTURE SECTION & BLOCK TYPES
+   ================================================== */
+
+export interface TimelineItem {
+  year: string;
+  event: string;
+}
+
+export interface TimelineBlock {
+  type: 'timeline';
+  title?: string;
+  items: TimelineItem[];
+}
+
+export interface ElementItem {
+  name: string;
+  description: string;
+}
+
+export interface ElementsBlock {
+  type: 'elements';
+  title?: string;
+  summary?: string;
+  items: ElementItem[];
+}
+
+export interface PointsBlock {
+  type: 'points';
+  title?: string;
+  items: string[];
+}
+
+export interface ProseBlock {
+  type: 'prose';
+  title?: string;
+  content: string | string[];
+}
+
+export type CultureBlock = TimelineBlock | ElementsBlock | PointsBlock | ProseBlock;
+
+export interface CultureSection {
+  id?: string;
+  title: string;
+  eyebrow?: string;
+  japanese?: string;
+  summary?: string;
+  blocks: CultureBlock[];
+}
+
 export interface Culture {
   id: string;
   name: string;
@@ -20,6 +70,12 @@ export interface Culture {
   shortDescription: string;
   heroImage: string;
   thumbnailImage: string;
+  motorcycleIds?: string[];
+  hasModifications?: boolean;
+  sections: CultureSection[];
+  sources?: Source[];
+
+  /* Backwards compatibility for legacy BosozokuPage */
   origins?: {
     era: string;
     summary: string;
@@ -37,7 +93,6 @@ export interface Culture {
     summary: string;
     points: string[];
   };
-  sources?: Source[];
 }
 
 export interface MotorcycleSpecs {
