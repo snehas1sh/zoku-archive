@@ -34,13 +34,13 @@ export const HomePage: React.FC = () => {
         {/* Background Image with Cinematic Darkness */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/hero_bike.jpg"
+            src="/images/hero_bike.jpeg"
             alt="Japanese night motorcycle under Tokyo highway"
-            className="w-full h-full object-cover object-center scale-100 filter brightness-[0.7] contrast-[1.1]"
+            className="w-full h-full object-cover object-center scale-100 filter brightness-[0.85] contrast-[1.1]"
           />
           {/* Gradients to keep text crisp and editorial */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-black/35" />
-          <div className="absolute inset-0 bg-gradient-to-t from-zoku-black via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from zoku-black via-transparent to-black/40" />
         </div>
 
         {/* Hero Content (Left Side) */}
